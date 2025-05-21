@@ -1,0 +1,127 @@
+@local=http://localhost:3000
+
+###
+POST {{local}}/users/
+Content-Type: application/json
+
+{
+    "name":{
+        "first":"helooooooooooooooo",
+        "last":"Nagar"
+    },
+    "phone": "0512345567",
+    "email": "y@ojj.com",
+    "password": "Abc!123Abc",
+    "address": {
+        "country": "54",
+        "city": "Akkk",
+        "street": "Skkkkk",
+        "houseNumber": 55
+        },
+    "isBusiness": true
+}
+
+###
+POST {{local}}/users/login
+Content-Type: application/json
+
+{
+    "email":"sara@gmail.com",
+    "password":"aaa!123Abc"
+}
+
+###
+GET {{local}}/users/
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODI5YTk4MWRmNDYzNDkzNjJiNTFhZmQiLCJpc0J1c2luZXNzIjp0cnVlLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE3NDc1NjA4NTR9.tnYmeoXGIZ5CJepAwSJVTOEjOg_X2S61HImtaeo7MLI
+
+###
+GET {{local}}/users/6829b4d171a0aeb898b78311
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODI5YjRkMTcxYTBhZWI4OThiNzgzMTEiLCJpc0J1c2luZXNzIjp0cnVlLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzQ3NTYzNzUzfQ.ULLK65pZUAAi4xOpxD_P0RqUO6RTvQLiXyA9Cw93TA8
+
+###
+PUT {{local}}/users/6829b4d171a0aeb898b78311
+Content-Type: application/json
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODI5YjRkMTcxYTBhZWI4OThiNzgzMTEiLCJpc0J1c2luZXNzIjp0cnVlLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzQ3NTYzNzUzfQ.ULLK65pZUAAi4xOpxD_P0RqUO6RTvQLiXyA9Cw93TA8
+
+{
+    "name":{
+        "first":"Avital",
+        "last":"helll"
+    },
+    "phone": "0512345567",
+    "email": "y@c.com",
+    "password": "Abc!123Abc",
+    "address": {
+        "country": "102",
+        "city": "Akkk",
+        "street": "Skkkkk",
+        "houseNumber": 333
+        },
+    "isBusiness": false
+}
+
+###
+PATCH {{local}}/users/6829cb755783321916ff3685
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODI5Y2I3NTU3ODMzMjE5MTZmZjM2ODUiLCJpc0J1c2luZXNzIjp0cnVlLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzQ3NTY5NTM1fQ.Ykjmqxrp6Fmk1bfFwc511cXso-ZsTfQnJP8bOTN-aTM
+
+###
+DELETE {{local}}/users/6829cb755783321916ff3685
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODI5Y2I3NTU3ODMzMjE5MTZmZjM2ODUiLCJpc0J1c2luZXNzIjp0cnVlLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzQ3NTY5NTM1fQ.Ykjmqxrp6Fmk1bfFwc511cXso-ZsTfQnJP8bOTN-aTM
+
+###
+GET {{local}}/cards
+
+###
+POST {{local}}/cards
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODJhMGRlODRmZWY0ZWFjYWIzMmI1ZWEiLCJpc0J1c2luZXNzIjp0cnVlLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzQ3NTg2NTUwfQ.wHMxM1cKWyUM0AQWdIO1cCRwJxcKj5yd_P7GALs8x4M
+Content-Type: application/json
+
+{
+  "title": "like",
+  "subtitle": "a test value for this card",
+  "description": "a test value for new card test value for new card",
+  "phone": "012-3211234",
+  "email": "qwe@gmail.com",
+  "web": "www://bingggg.com",
+  "address": {
+    "country": "Israel",
+    "city": "Arad",
+    "street": "Shoham",
+    "houseNumber": 55  
+    }
+}
+
+###
+GET {{local}}/cards/my-cards
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODJhMGRlODRmZWY0ZWFjYWIzMmI1ZWEiLCJpc0J1c2luZXNzIjp0cnVlLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzQ3NTg2NTUwfQ.wHMxM1cKWyUM0AQWdIO1cCRwJxcKj5yd_P7GALs8x4M
+
+###
+GET {{local}}/cards/682a1ef62d1307f85a5ac1ac
+
+###
+PUT {{local}}/cards/682a1ef62d1307f85a5ac1ac
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODJhMGRlODRmZWY0ZWFjYWIzMmI1ZWEiLCJpc0J1c2luZXNzIjp0cnVlLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzQ3NTg2NTUwfQ.wHMxM1cKWyUM0AQWdIO1cCRwJxcKj5yd_P7GALs8x4M
+Content-Type: application/json
+
+{
+  "title": "new",
+  "subtitle": "a test value for this card",
+  "description": "a test value for new card test value for new card",
+  "phone": "012-3211234",
+  "email": "qwe@gmail.com",
+  "web": "www://bingggg.com",
+  "address": {
+    "country": "Israel",
+    "city": "Arad",
+    "street": "Shoham",
+    "houseNumber": 55  
+    }
+}
+
+###
+DELETE {{local}}/cards/682a2dd4f77669bca1299ccc
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODJhMmRhNGY3NzY2OWJjYTEyOTljYzciLCJpc0J1c2luZXNzIjp0cnVlLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE3NDc1OTQ2NzJ9.yq7kyJnGGO0yLDnPdmfDGFv3RvbhCx0y6Nod5YLAxmM
+
+###
+PATCH {{local}}/cards/682b0a1d5c177b25e01aa385
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODJiMTAyMWQ1ZDdmMGMzMTdkMjk3ZTMiLCJpc0J1c2luZXNzIjp0cnVlLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzQ3NjUyNjUwfQ.ruql959n2KVHxkVl0YJ-4ItPTsPObaOYFaTHZqfBLKI
