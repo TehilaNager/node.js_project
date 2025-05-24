@@ -1,19 +1,13 @@
-const morgan = require("morgan");
+const winston = require("winston");
 
-morgan.token("custom-date", () => {
-    const date = new Date();
-    return date.toLocaleString("he-IL", {
-        day: "2-digit",
-        month: "2-digit",
-        year: "numeric",
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit"
-    });
-});
+function printError(req, res) {
+    const logger = winston.createLogger({
+        transports: [new winston.transports.File({ filename: `${new Date().toISOString().slice(0, 10)}.js`, level: 'error' })]
+    })
 
-morgan.token("full-url", (req) => {
-    return `${req.protocol}://${req.get("host")}${req.originalUrl}`;
-})
+    if (req.status = 400) {
+        return logger;
+    }
+}
 
-module.exports = morgan;
+module.exports = printError;
