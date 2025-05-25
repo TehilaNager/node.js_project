@@ -1,13 +1,10 @@
 const winston = require("winston");
 
-function printError(req, res) {
+function printError() {
     const logger = winston.createLogger({
         transports: [new winston.transports.File({ filename: `${new Date().toISOString().slice(0, 10)}.js`, level: 'error' })]
     })
-
-    if (req.status = 400) {
-        return logger;
-    }
+    return logger;
 }
 
 module.exports = printError;

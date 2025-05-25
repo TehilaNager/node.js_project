@@ -1,9 +1,16 @@
 require("dotenv").config();
-const connectDB = require('./lib/connectDB')
+const connectDB = require('./lib/connectDB');
 const express = require("express");
 const app = express();
 const cors = require("cors");
 const morgan = require("./helpers/custom_morgan");
+const logger = require("./helpers/logger");
+
+app.use((req, res) => {
+    if (res.status = 400) {
+        logger()
+    };
+})
 
 app.use(morgan(`:custom-date :method :full-url :status :response-time ms`))
 
