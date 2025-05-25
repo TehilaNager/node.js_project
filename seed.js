@@ -1,6 +1,7 @@
+require("dotenv").config();
 const { User } = require("./model/user_model")
 const { Card } = require("./model/card_model");
-const connectDB = require("./app");
+const connectDB = require("./lib/connectDB");
 const data = require("./initialData/data");
 
 const initialData = data();
@@ -19,4 +20,4 @@ async function seedAll() {
 
 connectDB().then(() => {
     seedAll();
-})
+});
