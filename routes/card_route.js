@@ -105,6 +105,7 @@ router.patch("/:id", authMW, async (req, res) => {
 });
 
 router.patch("/:id/business-number", authMW, async (req, res) => {
+    console.log(req.body)
     if (!mongoose.isValidObjectId(req.params.id)) {
         res.status(400).send("The value provided is not a valid ObjectId. Please return a valid MongoDB ObjectId (a 24-character hexadecimal string).");
         return;
@@ -115,14 +116,9 @@ router.patch("/:id/business-number", authMW, async (req, res) => {
         return;
     };
 
-    const { error } = validateBizNumber.validate(req.body.bizNumber);
+    const { error } = validateBizNumber.validate(req.body);
     if (error) {
         res.status(400).send(error.details[0].message);
-        return;
-    }
-
-    if (req.body.bizNumber) {
-        res.status(400).send("Missing bizNumber in request body.");
         return;
     }
 
@@ -131,12 +127,6 @@ router.patch("/:id/business-number", authMW, async (req, res) => {
         res.status(400).send("Card not found.");
         return;
     }
-
-    // const newCard = await new Card({
-    //     ...card,
-    //     user_id: card.user_id,
-    //     bizNumber: req.body
-    // }).save();
 
     res.json(card);
 });

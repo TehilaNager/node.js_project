@@ -149,7 +149,7 @@ const validateCard = Joi.object({
 })
 
 const validateBizNumber = Joi.object({
-    bizNumber: Joi.number().required().min(100).max(9_999_999_999).messages({
+    bizNumber: Joi.number().required().min(100).max(9_999_999_999).strict().messages({
         'number.base': 'Business number must be a number.',
         'number.empty': 'Business number is required.',
         'number.min': 'Business number must be at least 3 digits long.',
