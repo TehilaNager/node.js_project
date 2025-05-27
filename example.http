@@ -26,8 +26,8 @@ POST {{local}}/users/login
 Content-Type: application/json
 
 {
-    "email":"sara@gmail.com",
-    "password":"aaa!123Abc"
+    "email":"y@ojj.com",
+    "password":"Abc!123Abc"
 }
 
 ###
@@ -65,7 +65,7 @@ PATCH {{local}}/users/6829cb755783321916ff3685
 x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODI5Y2I3NTU3ODMzMjE5MTZmZjM2ODUiLCJpc0J1c2luZXNzIjp0cnVlLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzQ3NTY5NTM1fQ.Ykjmqxrp6Fmk1bfFwc511cXso-ZsTfQnJP8bOTN-aTM
 
 ###
-DELETE {{local}}/users/6829cb755783321916ff3685
+DELETE {{local}}/users/6829c755783321916ff3685
 x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODI5Y2I3NTU3ODMzMjE5MTZmZjM2ODUiLCJpc0J1c2luZXNzIjp0cnVlLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzQ3NTY5NTM1fQ.Ykjmqxrp6Fmk1bfFwc511cXso-ZsTfQnJP8bOTN-aTM
 
 ###
@@ -96,10 +96,10 @@ GET {{local}}/cards/my-cards
 x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODJhMGRlODRmZWY0ZWFjYWIzMmI1ZWEiLCJpc0J1c2luZXNzIjp0cnVlLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzQ3NTg2NTUwfQ.wHMxM1cKWyUM0AQWdIO1cCRwJxcKj5yd_P7GALs8x4M
 
 ###
-GET {{local}}/cards/682a1ef62d1307f85a5ac1ac
+GET {{local}}/cards/682a1efd1307f85a5ac1ac
 
 ###
-PUT {{local}}/cards/682a1ef62d1307f85a5ac1ac
+PUT {{local}}/cards/682a1ef61307f85a5ac1ac
 x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODJhMGRlODRmZWY0ZWFjYWIzMmI1ZWEiLCJpc0J1c2luZXNzIjp0cnVlLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzQ3NTg2NTUwfQ.wHMxM1cKWyUM0AQWdIO1cCRwJxcKj5yd_P7GALs8x4M
 Content-Type: application/json
 
@@ -119,9 +119,17 @@ Content-Type: application/json
 }
 
 ###
-DELETE {{local}}/cards/682a2dd4f77669bca1299ccc
+DELETE {{local}}/cards/682a2d4f77669bca1299ccc
 x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODJhMmRhNGY3NzY2OWJjYTEyOTljYzciLCJpc0J1c2luZXNzIjp0cnVlLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE3NDc1OTQ2NzJ9.yq7kyJnGGO0yLDnPdmfDGFv3RvbhCx0y6Nod5YLAxmM
 
 ###
-PATCH {{local}}/cards/682b0a1d5c177b25e01aa385
-x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODJiMTAyMWQ1ZDdmMGMzMTdkMjk3ZTMiLCJpc0J1c2luZXNzIjp0cnVlLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzQ3NjUyNjUwfQ.ruql959n2KVHxkVl0YJ-4ItPTsPObaOYFaTHZqfBLKI
+PATCH {{local}}/cards/682b0a1d5c17b25e01aa385
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODJjYzA1YmJkYWM0ZTliY2Y4MDMzY2UiLCJpc0J1c2luZXNzIjp0cnVlLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzQ4Mzc3NzIxfQ.NJmOOTYWYLYMSxlrfPcGjNgjb53GvJxoFVkou3gAQ8s
+
+###
+PATCH {{local}}/cards/6836238a7cc9bfe08796a711/business-number
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODJjYzA1YmJkYWM0ZTliY2Y4MDMzY2UiLCJpc0J1c2luZXNzIjp0cnVlLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE3NDgzNzc3MjF9.9c4M5ZuyZxdv0rJVgc3-thSibz5aFFabQjFGeaOTt80
+
+{
+    "bizNumber":"111111111111"
+}

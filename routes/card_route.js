@@ -1,5 +1,5 @@
 const express = require("express");
-const { Card, validateCard, generateBizNumber } = require("../model/card_model");
+const { Card, validateCard, generateBizNumber, validateBizNumber } = require("../model/card_model");
 const router = express.Router();
 const authMW = require("../middleware/auth");
 const mongoose = require("mongoose");
@@ -102,6 +102,43 @@ router.patch("/:id", authMW, async (req, res) => {
     }
 
     res.json(likeCard);
+});
+
+router.patch("/:id/business-number", authMW, async (req, res) => {
+    if (!mongoose.isValidObjectId(req.params.id)) {
+        res.status(400).send("The value provided is not a valid ObjectId. Please return a valid MongoDB ObjectId (a 24-character hexadecimal string).");
+        return;
+    }
+
+    if (!req.user.isAdmin) {
+        res.status(400).send("Only an admin can change the business number.");
+        return;
+    };
+
+    const { error } = validateBizNumber.validate(req.body.bizNumber);
+    if (error) {
+        res.status(400).send(error.details[0].message);
+        return;
+    }
+
+    if (req.body.bizNumber) {
+        res.status(400).send("Missing bizNumber in request body.");
+        return;
+    }
+
+    const card = await Card.findByIdAndUpdate(req.params.id, { bizNumber: req.body.bizNumber }, { new: true });
+    if (!card) {
+        res.status(400).send("Card not found.");
+        return;
+    }
+
+    // const newCard = await new Card({
+    //     ...card,
+    //     user_id: card.user_id,
+    //     bizNumber: req.body
+    // }).save();
+
+    res.json(card);
 });
 
 router.delete("/:id", authMW, async (req, res) => {
