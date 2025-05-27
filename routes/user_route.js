@@ -96,7 +96,7 @@ router.put("/:id", authMW, async (req, res) => {
     }
     const editUser = await User.findByIdAndUpdate(req.params.id, value, { new: true });
     if (!editUser) {
-        res.status(400).send("User not found.")
+        res.status(400).send("User not found.");
         return;
     }
     const newUser = _.pick(editUser, ["_id", "name.first", "name.middle", "name.last", "phone", "email", "image.url", "image.alt", "address.state", "address.country", "address.city", "address.street", "address.houseNumber", "address.zip", "isBusiness", "isAdmin", "createdAt"]);

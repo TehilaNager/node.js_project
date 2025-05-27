@@ -1,10 +1,9 @@
-const winston = require("winston");
+const path = require('path');
+const rfs = require('rotating-file-stream');
 
-function printError() {
-    const logger = winston.createLogger({
-        transports: [new winston.transports.File({ filename: `${new Date().toISOString().slice(0, 10)}.js`, level: 'error' })]
-    })
-    return logger;
-}
+const accessLogStream = rfs.createStream(new Date().toLocaleDateString("he-IL"), {
+    interval: '1d',
+    path: path.join(__dirname, '../log')
+});
 
-module.exports = printError;
+module.exports = accessLogStream;
