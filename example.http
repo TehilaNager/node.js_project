@@ -10,7 +10,7 @@ Content-Type: application/json
         "last":"Nagar"
     },
     "phone": "0512345567",
-    "email": "y@ojj.com",
+    "email": "y@ojhjhhj.com",
     "password": "Abc!123Abc",
     "address": {
         "country": "54",
@@ -129,7 +129,12 @@ x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODJjYzA1YmJkYWM0Z
 ###
 PATCH {{local}}/cards/6836238a7cc9bfe08796a711/business-number
 x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODJjYzA1YmJkYWM0ZTliY2Y4MDMzY2UiLCJpc0J1c2luZXNzIjp0cnVlLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE3NDgzNzc3MjF9.9c4M5ZuyZxdv0rJVgc3-thSibz5aFFabQjFGeaOTt80
+Content-Type: application/json
 
 {
-    "bizNumber":"111111111111"
+    "bizNumber":8092657573,
+    "name":"Tehila",
+    "age":"Tehila",
+    "a":"D",
+    "b":"d"
 }

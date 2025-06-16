@@ -1,0 +1,5 @@
+15.06.2025, 19:12:19 POST http://localhost:3000/users/ 400 12.217 ms
+15.06.2025, 19:59:54 POST http://localhost:3000/users/ 400 75.374 ms -
+15.06.2025, 20:00:37 POST http://localhost:3000/users/ 400 91.242 ms -
+15.06.2025, 20:01:14 POST http://localhost:3000/users/ 400 79.715 ms -
+15.06.2025, 20:09:45 POST http://localhost:3000/users/ 400 154.536 ms Bad Request

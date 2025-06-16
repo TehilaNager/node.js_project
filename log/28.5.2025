@@ -1,7 +1,0 @@
-28.05.2025, 00:05:11 PATCH http://localhost:3000/cards/6836238a7cc9bfe08796a711/business-number 500 6.336 ms
-28.05.2025, 00:27:38 PATCH http://localhost:3000/cards/6836238a7cc9bfe08796a711/business-number 500 10.861 ms
-28.05.2025, 00:30:40 PATCH http://localhost:3000/cards/6836238a7cc9bfe08796a711/business-number 500 15.064 ms
-28.05.2025, 00:31:29 PATCH http://localhost:3000/cards/6836238a7cc9bfe08796a711/business-number 500 10.184 ms
-28.05.2025, 00:34:18 PATCH http://localhost:3000/cards/6836238a7cc9bfe08796a711/business-number 500 3.858 ms
-28.05.2025, 00:35:29 PATCH http://localhost:3000/cards/6836238a7cc9bfe08796a711/business-number 500 9.209 ms
-28.05.2025, 00:37:23 PATCH http://localhost:3000/cards/6836238a7cc9bfe08796a711/business-number 500 10.557 ms

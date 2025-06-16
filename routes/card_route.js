@@ -105,7 +105,6 @@ router.patch("/:id", authMW, async (req, res) => {
 });
 
 router.patch("/:id/business-number", authMW, async (req, res) => {
-    console.log(req.body)
     if (!mongoose.isValidObjectId(req.params.id)) {
         res.status(400).send("The value provided is not a valid ObjectId. Please return a valid MongoDB ObjectId (a 24-character hexadecimal string).");
         return;
@@ -116,13 +115,24 @@ router.patch("/:id/business-number", authMW, async (req, res) => {
         return;
     };
 
-    const { error } = validateBizNumber.validate(req.body);
+    const { error, value } = validateBizNumber.validate(req.body, { abortEarly: false });
     if (error) {
-        res.status(400).send(error.details[0].message);
+        const forbiddenKeysErrors = error.details.filter(e => e.type === 'object.unknown');
+        if (forbiddenKeysErrors.length > 0) {
+            const forbiddenFields = forbiddenKeysErrors.map(e => `"${e.context.key}"`).join(', ');
+            return res.status(400).send(`The following fields are not allowed: ${forbiddenFields}. Please provide only "bizNumber".`);
+        }
+
+        return res.status(400).send(error.details[0].message);
+    }
+
+    const bizNumberExists = await Card.findOne({ bizNumber: value.bizNumber });
+    if (bizNumberExists) {
+        res.status(400).send("The business number you entered is already in use. Please choose a different number.");
         return;
     }
 
-    const card = await Card.findByIdAndUpdate(req.params.id, { bizNumber: req.body.bizNumber }, { new: true });
+    const card = await Card.findByIdAndUpdate(req.params.id, { bizNumber: value.bizNumber }, { new: true });
     if (!card) {
         res.status(400).send("Card not found.");
         return;

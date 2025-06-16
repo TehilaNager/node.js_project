@@ -14,6 +14,10 @@ morgan.token("custom-date", () => {
 
 morgan.token("full-url", (req) => {
     return `${req.protocol}://${req.get("host")}${req.originalUrl}`;
-})
+});
+
+morgan.token("body", (req, res) => {
+    return res.statusMessage;
+});
 
 module.exports = morgan;

@@ -4,11 +4,11 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const morgan = require("./helpers/custom_morgan");
-const loggerStream = require("./helpers/logger");
+const CustomStream = require("./helpers/custom_stream");
 
-app.use(morgan(`:custom-date :method :full-url :status :response-time ms`, { stream: loggerStream, skip: function (req, res) { return res.statusCode < 400 } }));
+app.use(morgan(`:custom-date :method :full-url :status :response-time ms :body`, { stream: new CustomStream, skip: function (req, res) { return res.statusCode < 400 } }));
 
-app.use(morgan(`:custom-date :method :full-url :status :response-time ms`))
+app.use(morgan(`:custom-date :method :full-url :status :response-time ms :body`))
 
 app.use(cors());
 
